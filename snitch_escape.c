@@ -7,7 +7,13 @@
 #define TILE_SIZE 40
 #define MAP_WIDTH 15
 #define MAP_HEIGHT 15
-#define MAX_GHOSTS 2
+#define MAX_GHOSTS 3
+
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+
+#define OFFSET_X ((WINDOW_WIDTH - (MAP_WIDTH * TILE_SIZE)) / 2)
+#define OFFSET_Y ((WINDOW_HEIGHT - (MAP_HEIGHT * TILE_SIZE)) / 2)
 
 int original_map[MAP_HEIGHT][MAP_WIDTH]={
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -67,11 +73,11 @@ void DrawMap(){
     for (int j=0; j<MAP_HEIGHT; j++){    //basically jahaan pe mere golden pellets hai voh mera path signify karega and the rest is just the board
         for (int i=0; i< MAP_WIDTH; i++){ 
             if (map[j][i]==1){
-                DrawRectangle(i*TILE_SIZE, j*TILE_SIZE, TILE_SIZE, TILE_SIZE, DARKGRAY);    //posx, posy,width, height, colour
-                DrawRectangleLines(i*TILE_SIZE, j*TILE_SIZE, TILE_SIZE, TILE_SIZE, GRAY); 
+                DrawRectangle(OFFSET_X + i*TILE_SIZE, OFFSET_Y + j*TILE_SIZE, TILE_SIZE, TILE_SIZE, DARKGRAY);
+                DrawRectangleLines(OFFSET_X + i*TILE_SIZE, OFFSET_Y + j*TILE_SIZE, TILE_SIZE, TILE_SIZE, GRAY);
             } 
             else if (map[j][i]==2){ 
-                DrawCircle((i*TILE_SIZE)+ TILE_SIZE/2, (j*TILE_SIZE)+TILE_SIZE/2, 5,GOLD);    //centerx, centery, radius, colour 
+                DrawCircle(OFFSET_X + i*TILE_SIZE + TILE_SIZE/2, OFFSET_Y + j*TILE_SIZE + TILE_SIZE/2, 5, GOLD);
             }
         }
     }
@@ -203,22 +209,23 @@ int snitch_escape(){
         DrawMap();
 
         for (int i=0; i<MAX_GHOSTS; i++){
-            float centerx= deatheaters[i].x *TILE_SIZE + TILE_SIZE/2; 
-            float centery= deatheaters[i].y *TILE_SIZE + TILE_SIZE/2; 
+            float centerx= OFFSET_X+ deatheaters[i].x*TILE_SIZE + TILE_SIZE/2;
+            float centery= OFFSET_Y+ deatheaters[i].y*TILE_SIZE + TILE_SIZE/2;
             DrawCircle(centerx, centery, (TILE_SIZE/2)-6, deatheaters[i].color); 
             DrawCircle(centerx-5, centery-4, 3, WHITE);
             DrawCircle(centerx+5, centery-4, 3, WHITE);
         }
 
-        float snitchX= snitch.x * TILE_SIZE + TILE_SIZE/2; 
-        float snitchY= snitch.y * TILE_SIZE + TILE_SIZE/2; 
+        float snitchX= OFFSET_X+ snitch.x*TILE_SIZE + TILE_SIZE/2; 
+        float snitchY= OFFSET_Y+ snitch.y*TILE_SIZE + TILE_SIZE/2; 
+
         DrawCircle(snitchX, snitchY, TILE_SIZE/2 - 4, GOLD);
 
 
         int textwidth= MeasureText("Caught by Death Eater",30);
-        int posx= (750-textwidth)/2;
+        int posx= (WINDOW_WIDTH-textwidth)/2;
         int textwidth2= MeasureText("The Snitch escaped!",30);
-        int posx2=(750-textwidth2)/2;
+        int posx2= (WINDOW_WIDTH-textwidth2)/2;
         
         if (lose) {
             DrawText("Caught by Death Eater!", posx, 300, 30, RED);
