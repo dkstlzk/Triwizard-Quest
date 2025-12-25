@@ -94,12 +94,12 @@ gcc -o game.exe main.c dragons_egg.c snitch_escape.c enchanted_maze.c \
 
 ###  Linux (Ubuntu/Debian/Arch)
 
-Install Raylib (example for Ubuntu/Debian):
+Install Raylib from source or using a PPA (recommended), or follow Raylib’s official build guide: [Raylib](https://www.raylib.com/)
 ```bash
 sudo apt install libraylib-dev
 ```
 
-Compile the game:
+After Raylib is installed, compile:
 ```bash
 gcc -o game main.c dragons_egg.c snitch_escape.c enchanted_maze.c \ 
     -lraylib -lGL -lm -lpthread -ldl -lrt
