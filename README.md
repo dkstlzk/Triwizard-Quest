@@ -87,21 +87,31 @@ Make sure Raylib is installed and available in your compiler path.
 Run this command in file directory of project in MINGW64 MSYS2 terminal
 
 ```bash
-gcc -o game.exe main.c dragons_egg.c snitch_escape.c enchanted_maze.c \ 
+gcc -o game.exe main.c dragons_egg.c snitch_escape.c enchanted_maze.c \
     -lraylib -lopengl32 -lgdi32 -lwinmm
 ./game.exe 
 ```
 
 ###  Linux (Ubuntu/Debian/Arch)
 
-Install Raylib from source or using a PPA (recommended), or follow Raylib’s official build guide: [Raylib](https://www.raylib.com/)
+Install Raylib from source or use a distro package if your repositories provide one. On many Ubuntu installs, `libraylib-dev` is not available by default.
+
+If you need to build Raylib from source on Ubuntu, a simple setup is:
+
 ```bash
-sudo apt install libraylib-dev
+sudo apt update
+sudo apt install git build-essential cmake xorg-dev
+git clone https://github.com/raysan5/raylib.git
+cd raylib/src
+make
+sudo make install
+sudo ldconfig
 ```
 
-After Raylib is installed, compile:
+After Raylib is installed, compile the game with:
+
 ```bash
-gcc -o game main.c dragons_egg.c snitch_escape.c enchanted_maze.c \ 
+gcc -o game main.c dragons_egg.c snitch_escape.c enchanted_maze.c \
     -lraylib -lGL -lm -lpthread -ldl -lrt
 ./game
 ```
