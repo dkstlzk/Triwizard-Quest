@@ -1,6 +1,6 @@
-#  The Triwizard Tournament — A C Game Trilogy (Raylib)
+#  The Triwizard Tournament - A C Game Trilogy (Raylib)
 
-> Course Project — Introduction to Computer Science (C Programming)
+> Course Project - Introduction to Computer Science (C Programming)
 
 Welcome to The Triwizard Tournament, a fun set of 3 mini-games inspired by the magical world of Harry Potter.
 
@@ -12,24 +12,24 @@ This project is made using C and  basics of Raylib graphics library. The games a
 
 ###  1. Get the Dragon’s Egg
 In this game, the player must steal a golden egg from a dragon.
-The dragon throws fireballs, and the player has only 3 lives — each hit takes one life.
+The dragon throws fireballs, and the player has only 3 lives - each hit takes one life.
 There are 5 locked gates that can only be opened by collecting keys scattered across the area.
 
 To win:
- -Avoid fireballs
- -Collect all 5 keys
- -Reach the golden egg safely
+ - Avoid fireballs
+ - Collect all 5 keys
+ - Reach the golden egg safely
 
 ---
 
 ###  2. Snitch Escape
 In this game, the player moves around a maze to collect all the golden pellets scattered across the map.
-But there’s a catch — two Death Eaters are roaming the maze, trying to catch you!
+But there’s a catch - two Death Eaters are roaming the maze, trying to catch you!
 
 To win:
- -Collect all the pellets
- -Avoid getting caught by the ghosts
- -If a ghost touches you, it's game over.
+ - Collect all the pellets
+ - Avoid getting caught by the ghosts
+ - If a ghost touches you, it's game over.
 
 ---
 
@@ -43,9 +43,9 @@ The exit position is intelligently relocated based on distance and surrounding w
 ##  Controls
 
 The game will display the controls at the start, but here's a quick rundown:
-- Arrow Keys – Move around  
-- Enter – Confirm, continue. 
-- ESC – Quit the game anytime  
+- Arrow Keys -> Move around  
+- Enter -> Confirm, continue. 
+- ESC -> Quit the game anytime  
 
 The controls are consistent across all three mini-games, ensuring a smooth gameplay experience.
 
@@ -73,7 +73,19 @@ The controls are consistent across all three mini-games, ensuring a smooth gamep
 
 ---
 
-##  How to Run
+## 🎮 Play the Game (No Installation Required!)
+
+If you are on Windows and just want to play the game without installing any compilers or writing code:
+1. Go to the **[Releases](../../releases)** page on GitHub.
+2. Download the latest `Triwizard-Quest-vX.X.zip` file.
+3. Extract the folder on your computer.
+4. Double-click `Triwizard-Quest.exe` and enjoy!
+
+*(Note: The required DLLs are included in the ZIP file so the game runs out of the box).*
+
+---
+
+## 🛠️ How to Compile from Source
 
 ### 🔹 Prerequisites
 - **GCC compiler**
